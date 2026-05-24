@@ -9,17 +9,17 @@ public class TransactionResponse {
     private BigDecimal amount;
     private LocalDate date;
     private String description;
-    private String categoryName;
-    private CategoryType categoryType;
+    private String category;
+    private CategoryType type;
 
-    public TransactionResponse(Long id, BigDecimal amount, LocalDate date, String description, String categoryName,
-            CategoryType categoryType) {
+    public TransactionResponse(Long id, BigDecimal amount, LocalDate date, String description, String category,
+            CategoryType type) {
         this.id = id;
         this.amount = amount;
         this.date = date;
         this.description = description;
-        this.categoryName = categoryName;
-        this.categoryType = categoryType;
+        this.category = category;
+        this.type = type;
     }
 
     public Long getId() { return id; }
@@ -34,9 +34,9 @@ public class TransactionResponse {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public String getCategoryName() { return categoryName; }
-    public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
 
-    public CategoryType getCategoryType() { return categoryType; }
-    public void setCategoryType(CategoryType categoryType) { this.categoryType = categoryType; }
+    public CategoryType getType() { return type; }
+    public void setType(CategoryType type) { this.type = type; }
 }

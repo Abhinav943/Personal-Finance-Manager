@@ -27,8 +27,8 @@ public class TransactionService {
 
     public TransactionResponse addTransaction(TransactionRequest request, User user) {
 
-        Category category = categoryRepository.findByNameAndUser(request.getCategoryName(), user)
-                .orElseGet(() -> categoryRepository.findByNameAndUserIsNull(request.getCategoryName())
+        Category category = categoryRepository.findByNameAndUser(request.getCategory(), user)
+                .orElseGet(() -> categoryRepository.findByNameAndUserIsNull(request.getCategory())
                         .orElseThrow(() -> new IllegalArgumentException("Invalid category name provided")));
 
         Transaction transaction = new Transaction();
@@ -81,9 +81,9 @@ public class TransactionService {
         if (request.getDescription() != null) {
             transaction.setDescription(request.getDescription());
         }
-        if (request.getCategoryName() != null) {
-            Category category = categoryRepository.findByNameAndUser(request.getCategoryName(), user)
-                    .orElseGet(() -> categoryRepository.findByNameAndUserIsNull(request.getCategoryName())
+        if (request.getCategory() != null) {
+            Category category = categoryRepository.findByNameAndUser(request.getCategory(), user)
+                    .orElseGet(() -> categoryRepository.findByNameAndUserIsNull(request.getCategory())
                             .orElseThrow(() -> new IllegalArgumentException("Invalid category name provided")));
             transaction.setCategory(category);
         }

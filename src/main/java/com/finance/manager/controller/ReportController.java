@@ -33,6 +33,11 @@ public class ReportController {
     public ResponseEntity<MonthlyReportResponse> getMonthlyReport(
             @PathVariable int year,
             @PathVariable int month) {
+
+        if (month < 1 || month > 12) {
+            throw new IllegalArgumentException("Invalid month. Must be between 1 and 12.");
+        }
+
         User user = getAuthenticatedUser();
         MonthlyReportResponse response = reportService.getMonthlyReport(user, year, month);
         return ResponseEntity.ok(response);

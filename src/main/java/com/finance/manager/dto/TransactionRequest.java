@@ -20,7 +20,7 @@ public class TransactionRequest {
     private String description;
 
     @NotBlank(message = "Category name is required")
-    private String categoryName;
+    private String category;
 
 
     public BigDecimal getAmount() { return amount; }
@@ -32,6 +32,6 @@ public class TransactionRequest {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description;}
 
-    public String getCategoryName() { return categoryName; }
-    public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
 }

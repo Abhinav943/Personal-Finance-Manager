@@ -52,7 +52,7 @@ public class GoalService {
                 savedGoal.getStartDate(),
                 savedGoal.getTargetDate(),
                 financials[0], 
-                financials[1], 
+                financials[1].doubleValue(), 
                 financials[2]  
         );
     }
@@ -71,7 +71,7 @@ public class GoalService {
                     g.getStartDate(),
                     g.getTargetDate(),
                     financials[0], 
-                    financials[1], 
+                    financials[1].doubleValue(), 
                     financials[2]  
             ));
         }
@@ -97,7 +97,7 @@ public class GoalService {
                 updatedGoal.getStartDate(),
                 updatedGoal.getTargetDate(),
                 financials[0],
-                financials[1],
+                financials[1].doubleValue(),
                 financials[2]
         );
     }
@@ -115,7 +115,7 @@ public class GoalService {
                 goal.getStartDate(),
                 goal.getTargetDate(),
                 financials[0], 
-                financials[1], 
+                financials[1].doubleValue(), 
                 financials[2] 
         );
     }

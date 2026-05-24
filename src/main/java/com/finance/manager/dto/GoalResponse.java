@@ -11,11 +11,11 @@ public class GoalResponse {
     private LocalDate targetDate;
 
     private BigDecimal currentProgress;
-    private BigDecimal progressPercentage;
+    private double progressPercentage;;
     private BigDecimal remainingAmount;
 
     public GoalResponse(Long id, String goalName, BigDecimal targetAmount, LocalDate startDate, LocalDate targetDate,
-            BigDecimal currentProgress, BigDecimal progressPercentage, BigDecimal remainingAmount) {
+            BigDecimal currentProgress, double progressPercentage, BigDecimal remainingAmount) {
         this.id = id;
         this.goalName = goalName;
         this.targetAmount = targetAmount;
@@ -74,11 +74,11 @@ public class GoalResponse {
         this.currentProgress = currentProgress;
     }
 
-    public BigDecimal getProgressPercentage() {
+    public double getProgressPercentage() {
         return progressPercentage;
     }
 
-    public void setProgressPercentage(BigDecimal progressPercentage) {
+    public void setProgressPercentage(double progressPercentage) {
         this.progressPercentage = progressPercentage;
     }
 

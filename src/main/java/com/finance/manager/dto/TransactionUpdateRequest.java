@@ -10,7 +10,7 @@ public class TransactionUpdateRequest {
 
     private String description;
 
-    private String categoryName;
+    private String category;
 
     public BigDecimal getAmount() {
         return amount;
@@ -28,11 +28,11 @@ public class TransactionUpdateRequest {
         this.description = description;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
