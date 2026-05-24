@@ -20,6 +20,8 @@ public class GoalRequest {
     @Future(message = "Target date must be in the future")
     private LocalDate targetDate;
 
+    private LocalDate startDate;
+
     public String getGoalName() { return goalName; }
     public void setGoalName(String goalName) { this.goalName = goalName; }
 
@@ -28,4 +30,7 @@ public class GoalRequest {
 
     public LocalDate getTargetDate() { return targetDate; }
     public void setTargetDate(LocalDate targetDate) { this.targetDate = targetDate; }
+
+    public LocalDate getStartDate() { return startDate; }
+    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
 }

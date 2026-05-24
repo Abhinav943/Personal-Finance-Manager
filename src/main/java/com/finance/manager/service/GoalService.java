@@ -38,7 +38,11 @@ public class GoalService {
         goal.setTargetAmount(request.getTargetAmount());
         goal.setTargetDate(request.getTargetDate());
 
-        goal.setStartDate(LocalDate.now());
+        if (request.getStartDate() != null) {
+            goal.setStartDate(request.getStartDate());
+        } else {
+            goal.setStartDate(LocalDate.now());
+        }
         goal.setUser(user);
 
         Goal savedGoal = goalRepository.save(goal);
@@ -83,8 +87,12 @@ public class GoalService {
         Goal goal = goalRepository.findByIdAndUser(id, user)
                 .orElseThrow(() -> new RuntimeException("Goal not found"));
 
-        goal.setTargetAmount(request.getTargetAmount());
-        goal.setTargetDate(request.getTargetDate());
+        if (request.getTargetAmount() != null) {
+            goal.setTargetAmount(request.getTargetAmount());
+        }
+        if (request.getTargetDate() != null) {
+            goal.setTargetDate(request.getTargetDate());
+        }
 
         Goal updatedGoal = goalRepository.save(goal);
 
