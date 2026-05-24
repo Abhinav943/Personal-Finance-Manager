@@ -41,12 +41,12 @@ public class TransactionController {
     public ResponseEntity<TransactionListResponse> getAllTransactions(
             @RequestParam(required = false) LocalDate startDate,
             @RequestParam(required = false) LocalDate endDate,
-            @RequestParam(value = "categoryId", required = false) Long categoryId) { 
+            @RequestParam(required = false) String category) { 
 
         User user = getAuthenticatedUser();
 
         List<TransactionResponse> transactions = transactionService.getAllTransactions(user, startDate, endDate,
-                categoryId);
+                category);
 
         return ResponseEntity.ok(new TransactionListResponse(transactions));
     }

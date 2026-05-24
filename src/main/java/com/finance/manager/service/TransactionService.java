@@ -50,22 +50,25 @@ public class TransactionService {
     }
 
 
-    public List<TransactionResponse> getAllTransactions(User user, LocalDate startDate, LocalDate endDate, Long categoryId) {
+    public List<TransactionResponse> getAllTransactions(User user, LocalDate startDate, LocalDate endDate,
+            String category) {
         List<Transaction> allTransactions = transactionRepository.findByUserOrderByDateDesc(user);
-        
+
         List<TransactionResponse> responses = new ArrayList<>();
 
         for (Transaction t : allTransactions) {
-            if (startDate != null && t.getDate().isBefore(startDate)) continue;
-            
-            if (endDate != null && t.getDate().isAfter(endDate)) continue;
-            
-            if (categoryId != null && !t.getCategory().getId().equals(categoryId)) continue;
+            if (startDate != null && t.getDate().isBefore(startDate))
+                continue;
+
+            if (endDate != null && t.getDate().isAfter(endDate))
+                continue;
+
+            if (category != null && !t.getCategory().getName().equalsIgnoreCase(category))
+                continue;
 
             responses.add(new TransactionResponse(
                     t.getId(), t.getAmount(), t.getDate(), t.getDescription(),
-                    t.getCategory().getName(), t.getCategory().getType()
-            ));
+                    t.getCategory().getName(), t.getCategory().getType()));
         }
 
         return responses;
