@@ -37,18 +37,17 @@ public class TransactionController {
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
-    // ... inside TransactionController.java ...
-
     @GetMapping
     public ResponseEntity<TransactionListResponse> getAllTransactions(
             @RequestParam(required = false) LocalDate startDate,
             @RequestParam(required = false) LocalDate endDate,
-            @RequestParam(required = false) Long categoryId) {
-        
+            @RequestParam(value = "categoryId", required = false) Long categoryId) { 
+
         User user = getAuthenticatedUser();
-        
-        List<TransactionResponse> transactions = transactionService.getAllTransactions(user, startDate, endDate, categoryId);
-        
+
+        List<TransactionResponse> transactions = transactionService.getAllTransactions(user, startDate, endDate,
+                categoryId);
+
         return ResponseEntity.ok(new TransactionListResponse(transactions));
     }
 
