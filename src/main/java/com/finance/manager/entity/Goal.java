@@ -34,6 +34,9 @@ public class Goal {
     @Column(nullable = false)
     private LocalDate startDate;
 
+    @Column(nullable = false)
+    private BigDecimal currentProgress = BigDecimal.ZERO;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -69,6 +72,9 @@ public class Goal {
 
     public LocalDate getStartDate() { return startDate; }
     public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+
+    public BigDecimal getCurrentProgress() { return currentProgress; }
+    public void setCurrentProgress(BigDecimal currentProgress) { this.currentProgress = currentProgress; }
 
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }

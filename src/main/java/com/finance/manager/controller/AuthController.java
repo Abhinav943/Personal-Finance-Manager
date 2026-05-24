@@ -64,4 +64,17 @@ public class AuthController {
                     .body(new MessageResponse("Invalid credentials"));
         }
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            session.invalidate();
+        }
+
+        SecurityContextHolder.clearContext();
+
+        return ResponseEntity.ok(new MessageResponse("Logout successful"));
+    }
 }

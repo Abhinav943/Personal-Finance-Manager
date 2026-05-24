@@ -1,5 +1,6 @@
 package com.finance.manager.controller;
 
+import com.finance.manager.dto.CategoryListResponse;
 import com.finance.manager.dto.CategoryRequest;
 import com.finance.manager.dto.CategoryResponse;
 import com.finance.manager.dto.MessageResponse;
@@ -36,10 +37,10 @@ public class CategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CategoryResponse>> getAllCategories() {
-        User user = getAuthenticatedUser();
-        List<CategoryResponse> categories = categoryService.getAllCategories(user);
-        return ResponseEntity.ok(categories);
+    public ResponseEntity<CategoryListResponse> getAllCategories() {
+        User currentUser = getAuthenticatedUser();
+        List<CategoryResponse> categories = categoryService.getAllCategories(currentUser);
+        return ResponseEntity.ok(new CategoryListResponse(categories));
     }
 
     @PostMapping

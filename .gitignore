@@ -56,3 +56,15 @@ $RECYCLE.BIN/
 *.bak
 *.swp
 
+# Security / Secrets
+.env
+application-secret.properties
+application-prod.properties
+
+# Local Databases (H2)
+*.mv.db
+*.trace.db
+
+# Packaged Archives (global safeguard)
+*.jar
+*.war

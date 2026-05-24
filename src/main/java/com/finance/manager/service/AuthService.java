@@ -25,7 +25,7 @@ public class AuthService {
     @Transactional
     public MessageResponse registerUser(RegisterRequest request) {
         if (userRepository.existsByUsername(request.getUsername())) {
-            throw new IllegalArgumentException("Username/Email is already taken!");
+            throw new IllegalStateException("Username/Email is already taken!");
         }
 
         User newUser = new User(
